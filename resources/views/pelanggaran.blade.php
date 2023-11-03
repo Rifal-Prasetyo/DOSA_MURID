@@ -70,9 +70,10 @@
 
 
 
-                <form action="{{ route('pelanggaran.add.aksi', $kode_aksi) }}" method="POST">
+                <form action="{{ route('pelanggaran.add.aksi', $kode_aksi) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
-
+                    <input type="hidden" name="nis_siswa" value="{{ $siswa->nis }}">
                     <label for="pelanggaran" id="pelanggaran" class="">Pilih pelanggaran</label>
                     <select name="kode_pelanggaran" id="pelanggaran" class="rounded mb-2">
                         <option value="" disabled selected>--- PILIH PELANGGARAN ---</option>
@@ -84,7 +85,11 @@
                     </select>
 
 
-
+                    <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        aria-describedby="file_input_help" id="file_input" name="foto" type="file">
+                    <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">Semua Format Gambar
+                        Diizinkan</p>
                     <div class="mb-4">
                         <label for="keterangan" class="block mb-2 text-lg font-medium">Keterangan</label>
                         <input type="text" id="keterangan" name="keterangan"

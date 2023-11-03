@@ -22,44 +22,42 @@
     <h1 class="font-bold text-lg  md:text-2xl px-4 py-5 w-full text-center text-white mb-4 bg-blue-500">
         {{ config('app.name', 'Laravel') }}</h1>
     <main class="container mx-auto">
-        <div class="w-full flex justify-center">
-            <div class="flex  flex-wrap  ">
-                <div class="image w-full md:w-1/2 flex justify-center md:justify-end">
-                    <img src="{{ asset('img/' . $siswa->foto) }}" alt="" class="">
-                </div>
-                <div class="body w-full md:w-1/2 inline-block px-6 py-6 bg-slate-100 shadow-lg rounded-md ">
-                    <h2 class="font-bold text-md text-slate-700 uppercase mb-2">SISWA</h2>
-                    <h3 class="font-bold text-3xl text-slate-900 mb-2 ">{{ $siswa->nama }}</h3>
-                    <table class="mb-5">
-                        <tr>
-                            <td>NISN:</td>
-                            <td>{{ $siswa->nisn }}</td>
-                        </tr>
-                        <tr>
-                            <td>Kelas:</td>
-                            <td> {{ $siswa->kelas->nama_kelas }}</td>
-                        </tr>
-                        <tr>
-                            <td>Jurusan: </td>
-                            <td>{{ $siswa->kelas->jurusan->nama_jurusan }}</td>
-                        </tr>
-                        <tr>
-                            <td>Alamat:</td>
-                            <td> {{ $siswa->alamat }}</td>
-                        </tr>
-                        <tr>
-                    </table>
-                </div>
+        <div class="flex  flex-wrap  mb-2">
+            <div class="image w-full md:w-1/2 flex justify-center shadow-xl rounded-md">
+                <img src="{{ asset($siswa->foto) }}" alt="" class="">
+            </div>
+            <div class="body w-full md:w-1/2 inline-block px-6 py-6 bg-slate-100 shadow-lg rounded-md ">
+                <h2 class="font-bold text-md text-slate-700 uppercase mb-2">SISWA</h2>
+                <h3 class="font-bold text-3xl text-slate-900 mb-2 ">{{ $siswa->nama }}</h3>
+                <table class="mb-5">
+                    <tr>
+                        <td>NISN:</td>
+                        <td>{{ $siswa->nisn }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kelas:</td>
+                        <td> {{ $siswa->kelas->nama_kelas }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jurusan: </td>
+                        <td>{{ $siswa->kelas->jurusan->nama_jurusan }}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat:</td>
+                        <td> {{ $siswa->alamat }}</td>
+                    </tr>
+                    <tr>
+                </table>
             </div>
         </div>
-        <div class="w-full mt-2 flex justify-center gap-4 my-4">
-            <h3 class="px-6 py-3 bg-slate-400 shadow-xl text-white">POIN PELANGGARAN KAMU</h3>
-            <p class="font-bold  shadow-xl px-6 py-3 text-center bg-red-500 text-white"><i
+        <div class="w-full  flex justify-center gap-4 my-4">
+            <h3 class="px-6 py-3 bg-slate-700 shadow-xl text-white">POIN PELANGGARAN KAMU</h3>
+            <p class="font-bold  shadow-xl px-6 py-3 text-center bg-red-700 text-white"><i
                     class="bi bi-exclamation-circle mr-2"></i>{{ $total }}</p>
         </div>
         <h4 class="font-bold text-2xl m-4">Daftar Aksi</h4>
         @foreach ($siswa->aksi as $list)
-            <div class="w-full m-5">
+            <div class="w-full mb-5 ">
                 <div class="px-6 py-6  bg-slate-200 shadow-lg rounded-md  ">
                     <h2 class="font-bold text-md text-slate-700 uppercase mb-4">Aksi {{ $list->kode_aksi }}</h2>
 

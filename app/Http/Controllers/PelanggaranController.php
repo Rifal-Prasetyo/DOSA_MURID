@@ -159,14 +159,21 @@ class PelanggaranController extends Controller
     {
         $request->validate([
             'kode_pelanggaran' => 'required',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'nis_siswa' => 'required'
         ]);
-
+        $siswaNis = Siswa::where('nis', $request->nis_siswa)->first();
+        if ($request->hasFile('foto')) {
+            $path = $request->file('foto')->store('images');
+            $siswaNis->foto = $path;
+            $siswaNis->save();
+        }
         $list = ListPelanggaran::create([
             'kode_aksi' => $kode_aksi,
             'kode_pelanggaran' => $request->kode_pelanggaran,
-            'keterangan' => $request->keterangan
+            'keterangan' => $request->keterangan,
         ]);
+
 
         return redirect()->back();
     }

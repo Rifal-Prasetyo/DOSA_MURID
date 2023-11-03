@@ -23,7 +23,7 @@
         <div class="herro">
             <div class="text-2xl md:text-5xl px-3 text-center font-bold text-white mb-2 md:mb-3">
                 {{ config('app.name', 'Laravel') }}</div>
-            <div class="text-lg md:text-2xl font-medium text-slate-300 mb-2 md:mb-4">Masukan Nis Kamu... Dibawah... ini
+            <div class="text-lg md:text-2xl font-medium text-slate-300 mb-2 md:mb-4">Masukan Nis Siswa
             </div>
             <div class="flex">
                 <form action="{{ route('result') }}" method="GET" id="form">
